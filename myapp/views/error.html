@@ -1,0 +1,29 @@
+{% extends './layout/_layout.html' %}
+
+{% set title = "Главная" %}
+
+{% block header %}
+  {% include 'common/header.html' %}
+{% endblock %}
+
+{% block content %}
+  <main>
+
+    <section class="section services-sections">
+
+      <div class="container">
+
+        <div class="error-message">
+          что-то пошло не так!!!
+        </div>
+        
+      </div>
+
+    </section>
+    
+  </main>
+{% endblock %}
+
+{% block footer %}
+  {% include 'common/footer.html' %}  
+{% endblock %}

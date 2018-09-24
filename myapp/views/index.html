@@ -1,0 +1,84 @@
+{% extends './layout/_layout.html' %}
+
+{% set title = "Главная" %}
+
+{% block header %}
+  {% include 'common/header.html' %}
+{% endblock %}
+
+{% block content %}
+  <main>
+
+    <section class="section services-sections">
+
+      <div class="container">
+        <div class="avatar">
+          <img src="./assets/img/about-photo.png" alt="">
+        </div>
+        {% if msg %}
+          <div class="error">{{ msg }}</div>
+        {% endif %}
+        
+
+        <div class="form-container">
+          <form class="form" id="form" action="/sendform" method="post" enctype="multipart/form-data">
+            <div class="form__control-wrap">
+              <div class="form__left">
+                <div class="form__control">
+                  <label class="form__control-label" for="name">
+                    <div class="form__control-title">Name</div>
+                    <input class="form__control-field" type="text" id="name" name="name" required>
+                  </label>
+                </div>
+                <div class="form__control">
+                  <label class="form__control-label" for="phone">
+                    <div class="form__control-title">Phone</div>
+                    <input class="form__control-field" type="tel" id="phone" name="phone" required>
+                  </label>
+                </div>
+                <div class="form__control">
+                  <label class="form__control-label" for="mail">
+                    <div class="form__control-title">Mail</div>
+                    <input class="form__control-field" type="email" id="mail" name="mail" required>
+                  </label>
+                </div>
+              </div>
+              <div class="form__right">
+                <div class="form__control">
+                  <label class="form__control-label" for="form-textarea">
+                    <div class="form__control-title">Message</div>
+                    <textarea class="form__control-field form__control-textarea" name="formtextarea" id="form-textarea"></textarea>
+                  </label>
+                </div>
+                <div class="form__control">
+                  <label class="form__control-label form__control-label--file" for="image">
+                    <input type="file" class="form__control-file" id="image" name="image">
+                    <img class="form__control-file--fake" src="./assets/img/folder.svg" alt="">
+                    <div class="form__control-file-title">Image</div>
+                  </label>
+                  <div id="file-image" class="form__control-file-image"></div>
+                </div>
+              </div>              
+            </div>
+
+            
+            <div class="form__buttons">
+              <button class="form__button submit__button" type="submit" id="submit">
+                send
+              </button>
+              <button class="form__button clear__button" type="reset" id="clear">
+                clear
+              </button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </section>
+    
+  </main>
+{% endblock %}
+
+{% block footer %}
+  {% include 'common/footer.html' %}  
+{% endblock %}
